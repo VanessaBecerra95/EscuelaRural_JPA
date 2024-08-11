@@ -5,12 +5,9 @@ import lombok.*;
 
 @Entity
 @Table(name="tbl_students")
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Getter
-@Setter
-@ToString
-@Data
 public class Student {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
