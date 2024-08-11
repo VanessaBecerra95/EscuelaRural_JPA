@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Listado de pacientes</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100">
+<header th:replace="~{nav :: nav}"></header>
+<main class="flex items-center justify-center min-h-screen">
+    <div class="w-full max-w-6xl py-10">
+        <h1 class="mb-4 text-lg font-bold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl text-center">
+            Listado de estudiantes </h1>
+
+        <div class="py-6 flex items-center justify-between space-x-4">
+            <a th:href="@{/students/new}" type="submit"
+               class="flex items-center justify-center px-4 py-2 text-sm font-medium text-white bg-blue-500 rounded-md hover:bg-blue-600">
+                Agregar estudiante
+            </a>
+        </div>
+
+        <div class="relative overflow-x-auto shadow-md sm:rounded-lg content-center">
+            <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                <th scope="col" class="px-6 py-3">ID</th>
+                <th scope="col" class="px-6 py-3">Nombre</th>
+                <th scope="col" class="px-6 py-3">Apellido</th>
+                <th scope="col" class="px-6 py-3">Dirección</th>
+                <th scope="col" class="px-6 py-3">Teléfono</th>
+                <th scope="col" class="px-6 py-3">Email</th>
+                <th scope="col" class="px-6 py-3">Curso</th>
+                <th scope="col" class="px-6 py-3">Acciones</th>
+                </thead>
+                <tbody>
+                <tr th:each="s : ${students}"
+                    class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                    <th th:text="${s.getStudentId()}" scope="row"
+                        class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"></th>
+                    <td th:text="${s.getFirstName()}" class="px-6 py-4"></td>
+                    <td th:text="${s.getLastName()}" class="px-6 py-4"></td>
+                    <td th:text="${s.getAddress()}" class="px-6 py-4"></td>
+                    <td th:text="${s.getPhone()}" class="px-6 py-4"></td>
+                    <td th:text="${s.getEmail()}" class="px-6 py-4"></td>
+                    <td th:text="${s.getCourse() != null ? s.getCourse().getCourseName() : 'Curso no asignado'}" class="px-6 py-4"></td>
+                    <td class="px-6 py-4">
+                        <a th:href="@{/students/{id}(id=${s.getStudentId()})}" >Editar  <i class="fa-solid fa-pen ps-2"></i></a>
+                        <a th:href="@{/students/{id}/del(id=${s.getStudentId()})}" >Borrar  <i class="fa-solid fa-trash ps-2"></i></a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</main>
+<script src="https://kit.fontawesome.com/b5bbcbce64.js" crossorigin="anonymous"></script>
+</body>
+</html>
