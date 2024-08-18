@@ -6,7 +6,7 @@ Este proyecto fue desarrollado como parte de un desafío para crear un sistema d
 
 - **Gestión de Alumnos y Cursos**: Implementación de un sistema CRM que permite el ingreso, edición, selección, y eliminación de alumnos y cursos. Toda la información se gestiona de manera transaccional, garantizando la consistencia de los datos.
 
-- **Relaciones entre Entidades**: Se han modelado relaciones JPA entre las entidades `Alumno` y `Curso`, reflejando las asociaciones reales en una estructura de base de datos relacional.
+- **Relaciones entre Entidades**: Se han modelado relaciones JPA entre las entidades `Student` y `Course`, reflejando las asociaciones reales en una estructura de base de datos relacional.
 
 - **Transaccionalidad en Operaciones CRUD**: Todas las operaciones CRUD (Crear, Leer, Actualizar, Eliminar) están envueltas en transacciones para asegurar la integridad de los datos.
 
