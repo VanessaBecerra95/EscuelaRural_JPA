@@ -24,7 +24,7 @@ Este proyecto fue desarrollado como parte de un desafío para crear un sistema d
 ## Requerimientos del Proyecto
 
 1. **Configuración Inicial**: Creación del proyecto Spring Boot con las dependencias necesarias para conectar con una base de datos PostgreSQL.
-2. **Modelado de Entidades y Relaciones**: Definición de las clases `Alumno` y `Curso`, junto con sus relaciones.
+2. **Modelado de Entidades y Relaciones**: Definición de las clases `Students` y `Course`, junto con sus relaciones.
 3. **Implementación de CRUD Transaccional**: Desarrollo de las operaciones CRUD con soporte transaccional para asegurar la integridad de los datos.
 4. **Despliegue de Información**: Implementación de vistas con Thymeleaf para mostrar y gestionar la información en una interfaz web.
 
@@ -33,11 +33,13 @@ Este proyecto fue desarrollado como parte de un desafío para crear un sistema d
 1. **Clona el repositorio**:
    ```bash
    git clone https://github.com/tu_usuario/EscuelaRural_JPA.git
-2. Configura la base de datos: Asegúrate de tener PostgreSQL instalado y configura las credenciales en el archivo application.properties.
-3. Ejecuta la aplicación:
+2. Configura la base de datos:
+   - Asegúrate de tener PostgreSQL instalado y añadir los datos del script llamado "script sql para la base da datos escuela_rural".
+   - Configura las credenciales en el archivo application.properties.
+4. Ejecuta la aplicación:
    ```bash
    mvn spring-boot:run
-4. Accede a la interfaz web: Una vez que la aplicación esté en ejecución, accede a http://localhost:8080 para interactuar con el sistema.
+5. Accede a la interfaz web: Una vez que la aplicación esté en ejecución, accede a http://localhost:8080 para interactuar con el sistema.
 
 ## Consideraciones
 
