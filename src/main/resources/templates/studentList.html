@@ -15,7 +15,7 @@
         <div class="py-6 flex items-center justify-between space-x-4">
             <a th:href="@{/students/new}" type="submit"
                class="flex items-center justify-center px-4 py-2 text-sm font-medium text-white bg-blue-500 rounded-md hover:bg-blue-600">
-                Agregar estudiante
+                Agregar estudiante <i class="fa-solid fa-user-plus ps-2"></i>
             </a>
         </div>
 
@@ -41,10 +41,13 @@
                     <td th:text="${s.getAddress()}" class="px-6 py-4"></td>
                     <td th:text="${s.getPhone()}" class="px-6 py-4"></td>
                     <td th:text="${s.getEmail()}" class="px-6 py-4"></td>
-                    <td th:text="${s.getCourse() != null ? s.getCourse().getCourseName() : 'Curso no asignado'}" class="px-6 py-4"></td>
+                    <td th:text="${s.getCourse() != null ? s.getCourse().getCourseName() : 'Curso no asignado'}"
+                        class="px-6 py-4"></td>
                     <td class="px-6 py-4">
-                        <a th:href="@{/students/{id}(id=${s.getStudentId()})}" >Editar  <i class="fa-solid fa-pen ps-2"></i></a>
-                        <a th:href="@{/students/{id}/del(id=${s.getStudentId()})}" >Borrar  <i class="fa-solid fa-trash ps-2"></i></a>
+                        <a th:href="@{/students/{id}(id=${s.getStudentId()})}">Editar <i
+                                class="fa-solid fa-pen ps-2"></i></a>
+                        <a th:href="@{/students/{id}/del(id=${s.getStudentId()})}">Borrar <i
+                                class="fa-solid fa-trash ps-2"></i></a>
                     </td>
                 </tr>
                 </tbody>
@@ -52,6 +55,7 @@
         </div>
     </div>
 </main>
+<footer th:replace="~{footer :: footer}"></footer>
 <script src="https://kit.fontawesome.com/b5bbcbce64.js" crossorigin="anonymous"></script>
 </body>
 </html>

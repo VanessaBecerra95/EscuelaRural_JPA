@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/students")
 public class StudentController {
 
+    private static final String REDIRECT_STUDENTS = "redirect:/students";
+
     private final StudentService service;
     private final CourseService courseService;
 
@@ -38,7 +40,7 @@ public class StudentController {
         Course course = courseService.findById(courseId);
         student.setCourse(course);
         service.update(student);
-        return "redirect:/students";
+        return REDIRECT_STUDENTS;
     }
 
     @GetMapping("/new")
@@ -52,13 +54,13 @@ public class StudentController {
     public String create(@ModelAttribute Student student, @RequestParam("courseId") int courseId){
         Course course = courseService.findById(courseId);
         student.setCourse(course);
-        boolean result = service.create(student);
-        return "redirect:/students";
+        service.create(student);
+        return REDIRECT_STUDENTS;
     }
 
     @GetMapping("/{id}/del")
     public String delete(@PathVariable("id") int id) {
-        boolean result = service.delete(id);
-        return "redirect:/students";
+        service.delete(id);
+        return REDIRECT_STUDENTS;
     }
 }
