@@ -1,0 +1,61 @@
+--crear base de datos 
+
+CREATE DATABASE escuela_rural;
+
+--crear tabla course
+CREATE TABLE tbl_course (
+    course_id SERIAL PRIMARY KEY,
+    course_name VARCHAR(255) NOT NULL,
+    class_teacher VARCHAR(255) NOT NULL
+);
+
+--crear tabla students
+
+CREATE TABLE tbl_students (
+    student_id SERIAL PRIMARY KEY,
+    first_name VARCHAR(255) NOT NULL,
+    last_name VARCHAR(255) NOT NULL,
+    address VARCHAR(255),
+    phone VARCHAR(255),
+    email VARCHAR(255),
+    course_id INT,
+    FOREIGN KEY (course_id) REFERENCES tbl_course(course_id)
+);
+
+
+--Añadir datos a ambas tablas
+
+--tbl_course
+
+INSERT INTO tbl_course (course_name, class_teacher) VALUES
+('Mathematics', 'Mr. Smith'),
+('Science', 'Ms. Johnson'),
+('History', 'Mr. Brown');
+
+--tbl_students
+
+INSERT INTO tbl_students (first_name, last_name, address, phone, email, course_id) VALUES
+('John', 'Doe', '123 Main St', '555-1234', 'john.doe@example.com', 1),
+('Jane', 'Doe', '123 Main St', '555-1235', 'jane.doe@example.com', 1),
+('Alice', 'Smith', '456 Oak St', '555-1236', 'alice.smith@example.com', 2),
+('Bob', 'Smith', '456 Oak St', '555-1237', 'bob.smith@example.com', 2),
+('Charlie', 'Brown', '789 Pine St', '555-1238', 'charlie.brown@example.com', 3),
+('David', 'Brown', '789 Pine St', '555-1239', 'david.brown@example.com', 3),
+('Eve', 'Johnson', '101 Maple St', '555-1240', 'eve.johnson@example.com', 1),
+('Frank', 'Johnson', '101 Maple St', '555-1241', 'frank.johnson@example.com', 1),
+('Grace', 'Lee', '202 Birch St', '555-1242', 'grace.lee@example.com', 2),
+('Hank', 'Lee', '202 Birch St', '555-1243', 'hank.lee@example.com', 2),
+('Ivy', 'Kim', '303 Cedar St', '555-1244', 'ivy.kim@example.com', 3),
+('Jack', 'Kim', '303 Cedar St', '555-1245', 'jack.kim@example.com', 3),
+('Kathy', 'Miller', '404 Elm St', '555-1246', 'kathy.miller@example.com', 1),
+('Leo', 'Miller', '404 Elm St', '555-1247', 'leo.miller@example.com', 1),
+('Mia', 'Davis', '505 Spruce St', '555-1248', 'mia.davis@example.com', 2),
+('Nina', 'Davis', '505 Spruce St', '555-1249', 'nina.davis@example.com', 2),
+('Oscar', 'Wilson', '606 Fir St', '555-1250', 'oscar.wilson@example.com', 3),
+('Paul', 'Wilson', '606 Fir St', '555-1251', 'paul.wilson@example.com', 3),
+('Quinn', 'Taylor', '707 Ash St', '555-1252', 'quinn.taylor@example.com', 1),
+('Rita', 'Taylor', '707 Ash St', '555-1253', 'rita.taylor@example.com', 1);
+
+
+
+
